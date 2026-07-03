@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidade — Fator IA</title>
+  <meta name="description" content="Política de Privacidade e Proteção de Dados da Fator IA, conforme a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.fatoriabr.com.br/privacidade.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --roxo: #4B2E83;
+      --roxo-tech: #6A3FD9;
+      --dourado: #D4AF37;
+      --preto: #0F0F0F;
+      --cinza: #2A2A2A;
+      --cinza-claro: #3A3A3A;
+      --texto: #C8C8D0;
+      --texto-sutil: #888899;
+      --branco: #FFFFFF;
+      --borda: rgba(106,63,217,0.2);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--preto);
+      color: var(--texto);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15,15,15,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--borda);
+      padding: 0 2rem;
+    }
+
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Sora', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--branco);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-logo span {
+      color: var(--dourado);
+    }
+
+    .nav-back {
+      font-size: 13px;
+      color: var(--texto-sutil);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color .2s;
+    }
+
+    .nav-back:hover { color: var(--dourado); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1a0a3a 0%, #0F0F0F 60%);
+      border-bottom: 1px solid var(--borda);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212,175,55,0.1);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 12px;
+      color: var(--dourado);
+      font-weight: 500;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 600;
+      color: var(--branco);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: var(--texto-sutil);
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .hero-meta {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      font-size: 13px;
+      color: var(--texto-sutil);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .meta-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--roxo-tech);
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    /* ÍNDICE */
+    .indice {
+      background: rgba(106,63,217,0.08);
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .indice h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--dourado);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .indice ol {
+      list-style: none;
+      counter-reset: indice;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 2rem;
+    }
+
+    @media(max-width: 600px) {
+      .indice ol { grid-template-columns: 1fr; }
+    }
+
+    .indice li {
+      counter-increment: indice;
+      font-size: 14px;
+    }
+
+    .indice li a {
+      color: var(--texto-sutil);
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 4px 0;
+      transition: color .2s;
+    }
+
+    .indice li a::before {
+      content: counter(indice, decimal-leading-zero);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--roxo-tech);
+      min-width: 22px;
+    }
+
+    .indice li a:hover { color: var(--branco); }
+
+    /* SEÇÕES */
+    .secao {
+      margin-bottom: 3.5rem;
+      padding-top: 1rem;
+    }
+
+    .secao-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .secao-num {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: rgba(106,63,217,0.2);
+      border: 1px solid rgba(106,63,217,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Sora', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--roxo-tech);
+      flex-shrink: 0;
+    }
+
+    .secao h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--branco);
+    }
+
+    .secao p {
+      color: var(--texto);
+      margin-bottom: 1rem;
+      font-size: 15px;
+    }
+
+    .secao p:last-child { margin-bottom: 0; }
+
+    .secao ul, .secao ol {
+      margin: 1rem 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .secao li {
+      font-size: 15px;
+      color: var(--texto);
+      padding: 6px 0 6px 1.5rem;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .secao li:last-child { border-bottom: none; }
+
+    .secao li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--roxo-tech);
+      opacity: .7;
+    }
+
+    /* CARDS DE DIREITOS */
+    .direitos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 1.25rem 0;
+    }
+
+    @media(max-width: 600px) {
+      .direitos-grid { grid-template-columns: 1fr; }
+    }
+
+    .direito-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--borda);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+    }
+
+    .direito-titulo {
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--branco);
+      margin-bottom: .35rem;
+    }
+
+    .direito-desc {
+      font-size: 13px;
+      color: var(--texto-sutil);
+      line-height: 1.5;
+    }
+
+    /* DESTAQUE */
+    .destaque {
+      background: rgba(212,175,55,0.07);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-left: 3px solid var(--dourado);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      font-size: 14px;
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    /* CONTATO BOX */
+    .contato-box {
+      background: linear-gradient(135deg, rgba(75,46,131,0.3), rgba(42,42,42,0.5));
+      border: 1px solid rgba(106,63,217,0.3);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .contato-box h3 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--branco);
+      margin-bottom: .5rem;
+    }
+
+    .contato-box p {
+      font-size: 14px;
+      color: var(--texto-sutil);
+      margin-bottom: 1.25rem;
+    }
+
+    .contato-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(106,63,217,0.2);
+      border: 1px solid rgba(106,63,217,0.4);
+      border-radius: 8px;
+      padding: 10px 20px;
+      color: var(--branco);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background .2s, border-color .2s;
+    }
+
+    .contato-email:hover {
+      background: rgba(106,63,217,0.35);
+      border-color: rgba(106,63,217,0.6);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--cinza);
+      border-top: 1px solid var(--borda);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Sora', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--branco);
+      margin-bottom: .5rem;
+    }
+
+    .footer-logo span { color: var(--dourado); }
+
+    .footer-text {
+      font-size: 13px;
+      color: var(--texto-sutil);
+    }
+
+    .footer-links {
+      margin-top: .75rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--texto-sutil);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: var(--dourado); }
+
+    strong { color: var(--branco); font-weight: 500; }
+    a { color: var(--roxo-tech); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Fator <span>IA</span></a>
+    <a href="/" class="nav-back">← Voltar ao site</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">⚖️ LGPD — Lei nº 13.709/2018</div>
+  <h1>Política de Privacidade</h1>
+  <p>Como coletamos, usamos e protegemos seus dados pessoais. Transparência é parte do nosso método.</p>
+  <div class="hero-meta">
+    <div class="meta-item"><div class="meta-dot"></div> Vigência: 30 de abril de 2025</div>
+    <div class="meta-item"><div class="meta-dot"></div> Última atualização: 30/04/2025</div>
+    <div class="meta-item"><div class="meta-dot"></div> Versão 1.0</div>
+  </div>
+</section>
+
+<!-- CONTEÚDO -->
+<main class="content">
+
+  <!-- ÍNDICE -->
+  <div class="indice">
+    <h2>Índice</h2>
+    <ol>
+      <li><a href="#controlador">01. Controlador dos dados</a></li>
+      <li><a href="#dados-coletados">02. Dados que coletamos</a></li>
+      <li><a href="#finalidade">03. Finalidade do tratamento</a></li>
+      <li><a href="#base-legal">04. Base legal (LGPD)</a></li>
+      <li><a href="#compartilhamento">05. Compartilhamento</a></li>
+      <li><a href="#retencao">06. Retenção e exclusão</a></li>
+      <li><a href="#seguranca">07. Segurança</a></li>
+      <li><a href="#direitos">08. Seus direitos</a></li>
+      <li><a href="#cookies">09. Cookies</a></li>
+      <li><a href="#menores">10. Menores de idade</a></li>
+      <li><a href="#atualizacoes">11. Atualizações</a></li>
+      <li><a href="#contato">12. Contato e DPO</a></li>
+    </ol>
+  </div>
+
+  <!-- 01 -->
+  <section class="secao" id="controlador">
+    <div class="secao-header">
+      <div class="secao-num">01</div>
+      <h2>Controlador dos Dados</h2>
+    </div>
+    <p>A <strong>Fator IA</strong> é a controladora dos dados pessoais tratados neste site e nas interações decorrentes da prestação de seus serviços.</p>
+    <div class="destaque">
+      <strong>Fator IA — Inteligência Aplicada a Negócios</strong><br>
+      Contato: <a href="mailto:fatoria.br@gmail.com">fatoria.br@gmail.com</a><br>
+      Site: <a href="https://www.fatoriabr.com.br">www.fatoriabr.com.br</a><br>
+      Brasil
+    </div>
+    <p>Esta Política se aplica a todos os visitantes do site, potenciais clientes e clientes da Fator IA que nos fornecem dados pessoais por qualquer canal.</p>
+  </section>
+
+  <!-- 02 -->
+  <section class="secao" id="dados-coletados">
+    <div class="secao-header">
+      <div class="secao-num">02</div>
+      <h2>Dados que Coletamos</h2>
+    </div>
+    <p>Coletamos apenas os dados necessários para as finalidades descritas nesta política. São eles:</p>
+
+    <p><strong>Dados fornecidos por você (formulário de contato):</strong></p>
+    <ul>
+      <li>Nome completo</li>
+      <li>Endereço de e-mail</li>
+      <li>Mensagem ou descrição da sua demanda</li>
+    </ul>
+
+    <p><strong>Dados coletados automaticamente (navegação):</strong></p>
+    <ul>
+      <li>Endereço IP (anonimizado)</li>
+      <li>Tipo de navegador e dispositivo</li>
+      <li>Páginas acessadas e tempo de permanência</li>
+      <li>Origem do acesso (referrer)</li>
+    </ul>
+
+    <p>Não coletamos dados sensíveis (saúde, origem racial, posicionamento político, dados financeiros) e não solicitamos documentos de identificação pelo site.</p>
+  </section>
+
+  <!-- 03 -->
+  <section class="secao" id="finalidade">
+    <div class="secao-header">
+      <div class="secao-num">03</div>
+      <h2>Finalidade do Tratamento</h2>
+    </div>
+    <p>Seus dados são utilizados exclusivamente para:</p>
+    <ul>
+      <li><strong>Responder ao seu contato</strong> — retornar mensagens enviadas pelo formulário do site</li>
+      <li><strong>Avaliação de projeto</strong> — entender sua demanda e verificar se a Fator IA pode ajudar</li>
+      <li><strong>Envio de proposta</strong> — quando solicitado, apresentar proposta formal de projeto</li>
+      <li><strong>Execução do contrato</strong> — nos casos em que você se torna cliente, para cumprir as obrigações acordadas</li>
+      <li><strong>Melhoria do site</strong> — análise de dados de navegação para otimização de desempenho e experiência</li>
+      <li><strong>Cumprimento de obrigações legais</strong> — quando exigido por lei ou autoridade competente</li>
+    </ul>
+    <div class="destaque">
+      Não utilizamos seus dados para envio de e-mails em massa, newsletters ou publicidade sem seu consentimento explícito.
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="secao" id="base-legal">
+    <div class="secao-header">
+      <div class="secao-num">04</div>
+      <h2>Base Legal (LGPD)</h2>
+    </div>
+    <p>Todo tratamento de dados realizado pela Fator IA está fundamentado nas bases legais previstas na <strong>Lei nº 13.709/2018 (LGPD)</strong>:</p>
+    <ul>
+      <li><strong>Consentimento (Art. 7º, I)</strong> — ao preencher o formulário de contato, você consente com o uso dos dados para resposta e avaliação</li>
+      <li><strong>Execução de contrato (Art. 7º, V)</strong> — para clientes, o tratamento é necessário para cumprir o contrato de serviço</li>
+      <li><strong>Legítimo interesse (Art. 7º, IX)</strong> — análise de dados de navegação para melhoria do site, de forma não intrusiva</li>
+      <li><strong>Cumprimento de obrigação legal (Art. 7º, II)</strong> — quando exigido por lei, autoridade judicial ou regulatória</li>
+    </ul>
+  </section>
+
+  <!-- 05 -->
+  <section class="secao" id="compartilhamento">
+    <div class="secao-header">
+      <div class="secao-num">05</div>
+      <h2>Compartilhamento de Dados</h2>
+    </div>
+    <p>A Fator IA <strong>não vende, aluga ou compartilha</strong> seus dados pessoais com terceiros para fins comerciais.</p>
+    <p>Seus dados podem ser processados por fornecedores de tecnologia utilizados para operação do site, sempre sujeitos a obrigações de confidencialidade:</p>
+    <ul>
+      <li><strong>Formspree</strong> — plataforma de processamento do formulário de contato (formspree.io), sediada nos EUA, com política de privacidade própria</li>
+      <li><strong>Cloudflare</strong> — hospedagem e proteção do site (cloudflare.com), com certificação de segurança internacional</li>
+      <li><strong>Google Fonts</strong> — carregamento de tipografia, sem coleta de dados de identificação</li>
+    </ul>
+    <p>Em caso de determinação judicial, administrativa ou regulatória, podemos ser obrigados a compartilhar dados com autoridades competentes.</p>
+  </section>
+
+  <!-- 06 -->
+  <section class="secao" id="retencao">
+    <div class="secao-header">
+      <div class="secao-num">06</div>
+      <h2>Retenção e Exclusão de Dados</h2>
+    </div>
+    <p>Mantemos seus dados apenas pelo tempo necessário para cumprir a finalidade pela qual foram coletados:</p>
+    <ul>
+      <li><strong>Contatos sem conversão em projeto:</strong> até 12 meses após o último contato</li>
+      <li><strong>Dados de clientes:</strong> durante a vigência do contrato + 5 anos (prazo legal para obrigações fiscais e civis)</li>
+      <li><strong>Dados de navegação:</strong> até 13 meses (padrão de analytics)</li>
+    </ul>
+    <p>Após o prazo, os dados são eliminados de forma segura ou anonimizados, conforme o Art. 16 da LGPD.</p>
+  </section>
+
+  <!-- 07 -->
+  <section class="secao" id="seguranca">
+    <div class="secao-header">
+      <div class="secao-num">07</div>
+      <h2>Segurança dos Dados</h2>
+    </div>
+    <p>Adotamos medidas técnicas e organizacionais adequadas para proteger seus dados contra acesso não autorizado, perda, destruição ou divulgação indevida:</p>
+    <ul>
+      <li><strong>HTTPS obrigatório</strong> — toda comunicação entre seu navegador e o site é criptografada via TLS</li>
+      <li><strong>HSTS ativo</strong> — Strict-Transport-Security garante que conexões não seguras sejam recusadas automaticamente</li>
+      <li><strong>Headers de segurança</strong> — X-Frame-Options, X-Content-Type-Options, Content-Security-Policy e Permissions-Policy configurados</li>
+      <li><strong>Proteção DDoS</strong> — Cloudflare protege a infraestrutura contra ataques de disponibilidade</li>
+      <li><strong>Acesso restrito</strong> — apenas as sócias fundadoras têm acesso aos dados de contato recebidos</li>
+      <li><strong>Sem armazenamento de senhas</strong> — o site não possui sistema de login ou armazenamento de credenciais</li>
+    </ul>
+    <div class="destaque">
+      Em caso de incidente de segurança que possa gerar risco ou dano a titulares, a Fator IA notificará a ANPD e os titulares afetados no prazo legal, conforme Art. 48 da LGPD.
+    </div>
+  </section>
+
+  <!-- 08 -->
+  <section class="secao" id="direitos">
+    <div class="secao-header">
+      <div class="secao-num">08</div>
+      <h2>Seus Direitos como Titular</h2>
+    </div>
+    <p>Conforme o <strong>Art. 18 da LGPD</strong>, você tem os seguintes direitos em relação aos seus dados pessoais:</p>
+    <div class="direitos-grid">
+      <div class="direito-card">
+        <div class="direito-titulo">Confirmação e Acesso</div>
+        <div class="direito-desc">Saber se tratamos seus dados e obter uma cópia das informações que temos sobre você</div>
+      </div>
+      <div class="direito-card">
+        <div class="direito-titulo">Correção</div>
+        <div class="direito-desc">Solicitar a correção de dados incompletos, inexatos ou desatualizados</div>
+      </div>
+      <div class="direito-card">
+        <div class="direito-titulo">Anonimização ou Exclusão</div>
+        <div class="direito-desc">Pedir a anonimização, bloqueio ou eliminação de dados desnecessários ou excessivos</div>
+      </div>
+      <div class="direito-card">
+        <div class="direito-titulo">Portabilidade</div>
+        <div class="direito-desc">Receber seus dados em formato estruturado para transferência a outro fornecedor</div>
+      </div>
+      <div class="direito-card">
+        <div class="direito-titulo">Revogação do Consentimento</div>
+        <div class="direito-desc">Retirar seu consentimento a qualquer momento, sem prejuízo dos tratamentos já realizados</div>
+      </div>
+      <div class="direito-card">
+        <div class="direito-titulo">Oposição</div>
+        <div class="direito-desc">Se opor ao tratamento realizado com base em legítimo interesse, em caso de descumprimento da LGPD</div>
+      </div>
+      <div class="direito-card">
+        <div class="direito-titulo">Informação sobre compartilhamento</div>
+        <div class="direito-desc">Saber com quais entidades públicas e privadas compartilhamos seus dados</div>
+      </div>
+      <div class="direito-card">
+        <div class="direito-titulo">Revisão de decisão automatizada</div>
+        <div class="direito-desc">Solicitar revisão de decisões tomadas exclusivamente com base em tratamento automatizado</div>
+      </div>
+    </div>
+    <p>Para exercer qualquer um desses direitos, entre em contato pelo e-mail <a href="mailto:fatoria.br@gmail.com">fatoria.br@gmail.com</a>. Responderemos no prazo de até <strong>15 dias úteis</strong>.</p>
+  </section>
+
+  <!-- 09 -->
+  <section class="secao" id="cookies">
+    <div class="secao-header">
+      <div class="secao-num">09</div>
+      <h2>Cookies e Tecnologias de Rastreamento</h2>
+    </div>
+    <p>O site da Fator IA utiliza cookies em quantidade mínima, apenas para funcionamento técnico:</p>
+    <ul>
+      <li><strong>Cookies essenciais</strong> — necessários para o funcionamento do site; não podem ser desativados</li>
+      <li><strong>Cookies de desempenho</strong> — dados anônimos de navegação para identificar melhorias no site</li>
+    </ul>
+    <p>Não utilizamos cookies de publicidade, rastreamento de redes sociais ou perfis de comportamento.</p>
+    <p>Você pode configurar seu navegador para bloquear ou alertar sobre cookies. Isso pode afetar o funcionamento de algumas funcionalidades do site.</p>
+  </section>
+
+  <!-- 10 -->
+  <section class="secao" id="menores">
+    <div class="secao-header">
+      <div class="secao-num">10</div>
+      <h2>Menores de Idade</h2>
+    </div>
+    <p>Os serviços da Fator IA são destinados exclusivamente a pessoas jurídicas e profissionais maiores de 18 anos.</p>
+    <p>Não coletamos intencionalmente dados de menores de 18 anos. Se identificarmos que recebemos dados de um menor sem o consentimento de seus responsáveis legais, eliminaremos essas informações imediatamente.</p>
+  </section>
+
+  <!-- 11 -->
+  <section class="secao" id="atualizacoes">
+    <div class="secao-header">
+      <div class="secao-num">11</div>
+      <h2>Atualizações desta Política</h2>
+    </div>
+    <p>Esta Política de Privacidade pode ser atualizada periodicamente para refletir mudanças nas nossas práticas, nos serviços oferecidos ou na legislação aplicável.</p>
+    <p>Quando houver alterações relevantes, a data de "Última atualização" no topo deste documento será modificada. Recomendamos que você revise esta página periodicamente.</p>
+    <p>O uso continuado do site após a publicação de alterações implica sua concordância com a política atualizada.</p>
+  </section>
+
+  <!-- 12 -->
+  <section class="secao" id="contato">
+    <div class="secao-header">
+      <div class="secao-num">12</div>
+      <h2>Contato e Encarregado (DPO)</h2>
+    </div>
+    <p>Para dúvidas, solicitações relacionadas aos seus dados ou reporte de incidentes de privacidade, entre em contato com a Fator IA:</p>
+
+    <div class="contato-box">
+      <h3>Fale com a Fator IA sobre privacidade</h3>
+      <p>Respondemos em até 15 dias úteis. Identifique-se como titular de dados e descreva sua solicitação.</p>
+      <a href="mailto:fatoria.br@gmail.com" class="contato-email">
+        ✉ fatoria.br@gmail.com
+      </a>
+    </div>
+
+    <p style="margin-top:1.5rem">Caso entenda que seu direito não foi atendido, você pode recorrer à <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong>: <a href="https://www.gov.br/anpd" target="_blank" rel="noopener">www.gov.br/anpd</a></p>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Fator <span>IA</span></div>
+  <div class="footer-text">Inteligência aplicada a negócios · © 2025 Fator IA · Todos os direitos reservados</div>
+  <div class="footer-links">
+    <a href="/">Início</a>
+    <a href="/privacidade.html">Privacidade</a>
+    <a href="mailto:fatoria.br@gmail.com">Contato</a>
+  </div>
+</footer>
+
+</body>
+</html>

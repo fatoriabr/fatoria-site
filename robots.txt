@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /googleeb2107720fd17afb.html
+
+Sitemap: https://www.fatoriabr.com.br/sitemap.xml
