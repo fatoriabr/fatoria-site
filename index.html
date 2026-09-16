@@ -3717,8 +3717,7 @@ input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2)}
   <!-- Nav do modal -->
   <div class="fm-modal-nav">
     <div class="fm-modal-nav-logo">
-      <div class="fm-modal-nav-dot">FIA</div>
-      <span class="fm-modal-nav-brand">Fator<span>.</span>IA</span>
+      <img src="/logo-fator-ia.png" alt="Fator IA" style="height:40px;width:auto;object-fit:contain">
     </div>
     <button class="fm-modal-close" onclick="closeModal()">✕</button>
   </div>
@@ -4192,10 +4191,40 @@ fmUpdateProgress();
 /* ── GRID DE CARDS ── */
 .cm-grid{
   display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
-  max-width:1100px;margin:40px auto;padding:0 24px;
+  max-width:1100px;margin:32px auto;padding:0 24px;
 }
 @media(max-width:900px){.cm-grid{grid-template-columns:1fr 1fr!important}}
 @media(max-width:580px){.cm-grid{grid-template-columns:1fr!important}}
+
+/* ── SEPARADOR DE SEÇÃO ── */
+.cm-section{
+  max-width:1100px;margin:56px auto 0;padding:0 24px;
+}
+.cm-section-header{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08);
+  margin-bottom:32px;flex-wrap:wrap;gap:12px;
+}
+.cm-section-left{}
+.cm-section-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  border-radius:20px;padding:4px 12px;
+  font-family:'Sora',sans-serif;font-size:.6rem;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;
+}
+.cm-section-badge-gold{background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.25);color:rgba(212,175,55,.85)}
+.cm-section-badge-purple{background:rgba(106,63,217,.12);border:1px solid rgba(106,63,217,.3);color:rgba(106,63,217,.9)}
+.cm-section-badge-green{background:rgba(80,200,80,.1);border:1px solid rgba(80,200,80,.25);color:rgba(80,200,80,.85)}
+.cm-section-title{
+  font-family:'Sora',sans-serif;font-size:1.15rem;font-weight:800;
+  color:#fff;margin:0 0 4px;letter-spacing:-.01em;
+}
+.cm-section-desc{font-size:.8rem;color:rgba(255,255,255,.35);margin:0;line-height:1.5}
+.cm-section-count{
+  font-family:'Sora',sans-serif;font-size:2.2rem;font-weight:900;
+  color:rgba(255,255,255,.06);line-height:1;letter-spacing:-.04em;
+  white-space:nowrap;
+}
 
 .cm-card{
   background:rgba(255,255,255,.03);
@@ -4282,19 +4311,18 @@ fmUpdateProgress();
   <!-- Nav -->
   <div class="cm-nav">
     <div class="cm-brand">
-      <div class="cm-nav-dot">FIA</div>
-      <span>Fator<span>.</span>IA</span>
+      <img src="/logo-fator-ia.png" alt="Fator IA" style="height:44px;width:auto;object-fit:contain">
     </div>
     <button class="cm-close" onclick="closeCasesModal()" aria-label="Fechar">✕</button>
   </div>
 
   <!-- Hero -->
   <div class="cm-hero">
-    <div class="cm-tag"><span style="width:5px;height:5px;border-radius:50%;background:#D4AF37;display:inline-block"></span> Cases · Projetos reais</div>
-    <h2 class="cm-title">Projetos que provam <em>o método.</em></h2>
-    <p class="cm-sub">Cada caso tem um problema real, uma solução estruturada e um resultado mensurável — do diagnóstico à entrega, sem dependência criada.</p>
+    <div class="cm-tag"><span style="width:5px;height:5px;border-radius:50%;background:#D4AF37;display:inline-block"></span> Portfolio · Projetos reais</div>
+    <h2 class="cm-title">Do diagnóstico ao produto.<br><em>Resultado em cada entrega.</em></h2>
+    <p class="cm-sub">Sites institucionais, plataformas estratégicas, apps e automações com IA — cada projeto com problema real, solução estruturada e entrega com autonomia.</p>
     <div class="cm-hero-stats">
-      <div><div class="cm-stat-num">5</div><div class="cm-stat-lbl">casos documentados</div></div>
+      <div><div class="cm-stat-num">11</div><div class="cm-stat-lbl">projetos entregues</div></div>
       <div style="width:1px;height:40px;background:rgba(255,255,255,.08)"></div>
       <div><div class="cm-stat-num">≤90d</div><div class="cm-stat-lbl">por ciclo</div></div>
       <div style="width:1px;height:40px;background:rgba(255,255,255,.08)"></div>
@@ -4302,14 +4330,25 @@ fmUpdateProgress();
     </div>
   </div>
 
-  <!-- Grid de Cards -->
+  <!-- ══ SEÇÃO: SITES & CASES ══ -->
+  <div class="cm-section">
+    <div class="cm-section-header">
+      <div class="cm-section-left">
+        <div class="cm-section-badge cm-section-badge-gold"><span style="width:5px;height:5px;border-radius:50%;background:#D4AF37;display:inline-block"></span> Sites & Cases</div>
+        <div class="cm-section-title">Presença digital do zero.</div>
+        <div class="cm-section-desc">Sites institucionais, e-commerce e agentes de IA entregues com autonomia total.</div>
+      </div>
+      <div class="cm-section-count">06</div>
+    </div>
+  </div>
+
   <div class="cm-grid">
 
     <!-- Card 01 — Oikos -->
     <div class="cm-card" onclick="toggleCase('oikos',this)">
       <span class="cm-card-tag">Estruturação Digital</span>
       <div class="cm-card-thumb">
-        <img src="/case-oikos.jpg" alt="Oikos Engenharia" loading="lazy">
+        <img src="/case-oikos.jpg" alt="Oikos Engenharia">
       </div>
       <div class="cm-card-body">
         <div class="cm-card-eyebrow">Caso 01</div>
@@ -4325,7 +4364,7 @@ fmUpdateProgress();
     <div class="cm-card" onclick="toggleCase('beleza',this)">
       <span class="cm-card-tag">E-commerce</span>
       <div class="cm-card-thumb">
-        <img src="/case-beleza-negra.jpg" alt="Beleza Negra &Co" loading="lazy">
+        <img src="/case-beleza-negra.jpg" alt="Beleza Negra &Co">
       </div>
       <div class="cm-card-body">
         <div class="cm-card-eyebrow">Caso 02</div>
@@ -4341,7 +4380,7 @@ fmUpdateProgress();
     <div class="cm-card" onclick="toggleCase('diag',this)">
       <span class="cm-card-tag">Automação com IA</span>
       <div class="cm-card-thumb">
-        <img src="/case-diagnostico.jpg" alt="Agente de Diagnóstico" loading="lazy">
+        <img src="/case-diagnostico.jpg" alt="Agente de Diagnóstico">
       </div>
       <div class="cm-card-body">
         <div class="cm-card-eyebrow">Caso 03</div>
@@ -4357,7 +4396,7 @@ fmUpdateProgress();
     <div class="cm-card" onclick="toggleCase('nutrien',this)">
       <span class="cm-card-tag">Site Institucional</span>
       <div class="cm-card-thumb">
-        <img src="/case-nutrien.jpg" alt="Nutrien — Núcleo de Nutrição e Saúde" loading="lazy">
+        <img src="/case-nutrien.jpg" alt="Nutrien — Núcleo de Nutrição e Saúde">
       </div>
       <div class="cm-card-body">
         <div class="cm-card-eyebrow">Caso 04</div>
@@ -4373,7 +4412,7 @@ fmUpdateProgress();
     <div class="cm-card" onclick="toggleCase('neo',this)">
       <span class="cm-card-tag">Site Institucional</span>
       <div class="cm-card-thumb">
-        <img src="/case-neo-clinica.jpg" alt="Neo Clínica" loading="lazy">
+        <img src="/case-neo-clinica.jpg" alt="Neo Clínica">
       </div>
       <div class="cm-card-body">
         <div class="cm-card-eyebrow">Caso 05</div>
@@ -4381,6 +4420,22 @@ fmUpdateProgress();
         <div class="cm-card-stat">
           <span class="cm-card-stat-num">1º</span>
           <span class="cm-card-stat-lbl">site institucional da clínica</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 06 — Feminah -->
+    <div class="cm-card" onclick="toggleCase('feminah',this)">
+      <span class="cm-card-tag">IA em Saúde</span>
+      <div class="cm-card-thumb">
+        <img src="/case-feminah.jpg" alt="Feminah — Rastreamento de Câncer de Mama">
+      </div>
+      <div class="cm-card-body">
+        <div class="cm-card-eyebrow">Caso 06</div>
+        <div class="cm-card-title">O futuro do rastreamento do câncer de mama.</div>
+        <div class="cm-card-stat">
+          <span class="cm-card-stat-num" style="color:#D4648A">IA</span>
+          <span class="cm-card-stat-lbl">em linhas de cuidado</span>
         </div>
       </div>
     </div>
@@ -4472,15 +4527,246 @@ fmUpdateProgress();
     </div>
   </div>
 
+  <div id="cm-detail-feminah" class="cm-detail">
+    <div class="cm-detail-inner">
+      <div class="cm-detail-img"><img src="/case-feminah.jpg" alt="Feminah — Rastreamento de Câncer de Mama"></div>
+      <div class="cm-detail-body">
+        <div class="cm-detail-eyebrow">Caso 06 — IA em Saúde · Inteligência em Linhas de Cuidado</div>
+        <h3 class="cm-detail-title">O futuro do rastreamento do câncer de mama já começou.</h3>
+        <p class="cm-detail-narrative">A Feminah chegou com uma missão crítica: transformar o rastreamento do câncer de mama com tecnologia e inteligência clínica. Estruturamos a presença digital completa — site institucional com múltiplas seções de impacto, posicionamento técnico e comunicação acessível para pacientes e profissionais de saúde.</p>
+        <div class="cm-detail-stats">
+          <div><div class="cm-detail-stat-num" style="color:#D4648A">IA</div><div class="cm-detail-stat-lbl">em linhas de cuidado</div></div>
+          <div><div class="cm-detail-stat-num">100%</div><div class="cm-detail-stat-lbl">digital e acessível</div></div>
+          <div><div class="cm-detail-stat-num">0</div><div class="cm-detail-stat-lbl">dependência de plataforma</div></div>
+        </div>
+        <a href="https://www.feminahrastreamento.com.br" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;margin-top:24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:10px 18px;font-family:'Sora',sans-serif;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='rgba(212,100,138,.4)';this.style.color='#D4648A'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='rgba(255,255,255,.7)'">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          Visitar feminahrastreamento.com.br
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- Outros Projetos -->
+  <!-- ══ SEÇÃO: PROJETOS ESTRATÉGICOS ══ -->
+  <div class="cm-section">
+    <div class="cm-section-header">
+      <div class="cm-section-left">
+        <div class="cm-section-badge cm-section-badge-purple"><span style="width:5px;height:5px;border-radius:50%;background:#6A3FD9;display:inline-block"></span> Projetos Estratégicos</div>
+        <div class="cm-section-title">Planejamento, plataformas e sistemas.</div>
+        <div class="cm-section-desc">Diagnósticos estratégicos, apresentações executivas e ecossistemas digitais completos.</div>
+      </div>
+      <div class="cm-section-count">02</div>
+    </div>
+  </div>
+
+  <div class="cm-grid" style="margin-top:0">
+
+      <!-- Multintegrada -->
+      <div class="cm-card" onclick="toggleCase('multintegrada',this)">
+        <span class="cm-card-tag" style="background:rgba(0,160,120,.8)">Saúde Digital</span>
+        <div class="cm-card-thumb"><img src="/case-multintegrada.jpg" alt="Multintegrada 360"></div>
+        <div class="cm-card-body">
+          <div class="cm-card-eyebrow">Estratégia · Saúde</div>
+          <div class="cm-card-title">36 gaps SBIS.<br>90 dias para competir.</div>
+          <div class="cm-card-stat">
+            <span class="cm-card-stat-num" style="color:#00A878">36</span>
+            <span class="cm-card-stat-lbl">gaps SBIS mapeados</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Be Happier -->
+      <div class="cm-card" onclick="toggleCase('behappier',this)">
+        <span class="cm-card-tag" style="background:rgba(220,80,120,.8)">Plataforma Nacional</span>
+        <div class="cm-card-thumb"><img src="/case-behappier.jpg" alt="Be Happier"></div>
+        <div class="cm-card-body">
+          <div class="cm-card-eyebrow">Estratégia · Escala</div>
+          <div class="cm-card-title">De marca autoral a plataforma nacional.</div>
+          <div class="cm-card-stat">
+            <span class="cm-card-stat-num" style="color:#DC5078">B2B</span>
+            <span class="cm-card-stat-lbl">+ B2C estruturados</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  <!-- Detalhes Estratégicos -->
+  <div id="cm-detail-multintegrada" class="cm-detail">
+    <div class="cm-detail-inner">
+      <div class="cm-detail-img"><img src="/case-multintegrada.jpg" alt="Multintegrada 360"></div>
+      <div class="cm-detail-body">
+        <div class="cm-detail-eyebrow">Estratégia · Saúde Digital · Padrão SBIS</div>
+        <h3 class="cm-detail-title">36 gaps SBIS.<br>90 dias para competir no mercado particular.</h3>
+        <p class="cm-detail-narrative">A Multintegrada precisava entender exatamente o que faltava para competir no mercado privado com conformidade SBIS. Entregamos um benchmark completo da plataforma versus o padrão Conexa Saúde, mapeamento dos 36 gaps, plano de adequação em 90 dias e roteiro de certificação em 120 dias — com critérios de sucesso claros e sequência de execução.</p>
+        <div class="cm-detail-stats">
+          <div><div class="cm-detail-stat-num" style="color:#00A878">36</div><div class="cm-detail-stat-lbl">gaps SBIS mapeados</div></div>
+          <div><div class="cm-detail-stat-num">6</div><div class="cm-detail-stat-lbl">módulos MVP</div></div>
+          <div><div class="cm-detail-stat-num">90d</div><div class="cm-detail-stat-lbl">para competir</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cm-detail-behappier" class="cm-detail">
+    <div class="cm-detail-inner">
+      <div class="cm-detail-img"><img src="/case-behappier.jpg" alt="Be Happier"></div>
+      <div class="cm-detail-body">
+        <div class="cm-detail-eyebrow">Estratégia · Plataforma Nacional · Flávia da Veiga</div>
+        <h3 class="cm-detail-title">De marca autoral a plataforma nacional de transformação humana.</h3>
+        <p class="cm-detail-narrative">A Be Happier tinha autoridade, audiência e timing — faltava estrutura para escalar. Entregamos o projeto estratégico executivo completo: posicionamento, ecossistema de produtos, plataforma B2B e B2C, trilha de certificações e modelo de expansão nacional. Do conhecimento à empresa.</p>
+        <div class="cm-detail-stats">
+          <div><div class="cm-detail-stat-num" style="color:#DC5078">B2B</div><div class="cm-detail-stat-lbl">+ B2C estruturados</div></div>
+          <div><div class="cm-detail-stat-num">Nacional</div><div class="cm-detail-stat-lbl">escala planejada</div></div>
+          <div><div class="cm-detail-stat-num">360°</div><div class="cm-detail-stat-lbl">ecossistema digital</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO: APPS & PLATAFORMAS ══ -->
+  <div class="cm-section">
+    <div class="cm-section-header">
+      <div class="cm-section-left">
+        <div class="cm-section-badge cm-section-badge-green"><span style="width:5px;height:5px;border-radius:50%;background:#50C850;display:inline-block"></span> Apps & Plataformas</div>
+        <div class="cm-section-title">Produtos digitais ativos.</div>
+        <div class="cm-section-desc">MVPs, aplicativos e e-commerces em operação real com usuários.</div>
+      </div>
+      <div class="cm-section-count">02</div>
+    </div>
+  </div>
+
+  <div class="cm-grid" style="margin-top:0">
+
+      <!-- Rally One -->
+      <div class="cm-card" onclick="toggleCase('rallyone',this)">
+        <span class="cm-card-tag" style="background:rgba(80,200,80,.8)">App · MVP Ativo</span>
+        <div class="cm-card-thumb"><img src="/case-rallyone.jpg" alt="Rally One"></div>
+        <div class="cm-card-body">
+          <div class="cm-card-eyebrow">App · Tênis & Beach Tennis</div>
+          <div class="cm-card-title">Autoavaliação técnica com radar comparativo.</div>
+          <div class="cm-card-stat">
+            <span class="cm-card-stat-num" style="color:#50C850">MVP</span>
+            <span class="cm-card-stat-lbl">ativo em operação</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bee Home -->
+      <div class="cm-card" onclick="toggleCase('beehome',this)">
+        <span class="cm-card-tag" style="background:rgba(160,100,40,.85)">E-commerce Premium</span>
+        <div class="cm-card-thumb"><img src="/case-beehome.jpg" alt="Bee Home"></div>
+        <div class="cm-card-body">
+          <div class="cm-card-eyebrow">Boutique Digital · Decoração</div>
+          <div class="cm-card-title">Luxo acolhedor para viver e receber.</div>
+          <div class="cm-card-stat">
+            <span class="cm-card-stat-num" style="color:#C8904A">17</span>
+            <span class="cm-card-stat-lbl">entregas previstas</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  <!-- Detalhes Apps -->
+  <div id="cm-detail-rallyone" class="cm-detail">
+    <div class="cm-detail-inner">
+      <div class="cm-detail-img"><img src="/case-rallyone.jpg" alt="Rally One"></div>
+      <div class="cm-detail-body">
+        <div class="cm-detail-eyebrow">App · MVP Ativo · Tênis & Beach Tennis</div>
+        <h3 class="cm-detail-title">Como você avalia o seu jogo?</h3>
+        <p class="cm-detail-narrative">O Rally One é um aplicativo de autoavaliação técnica para atletas de tênis e beach tennis — com radar comparativo entre a percepção do aluno e a avaliação do professor. O app gera dados reais de evolução, organiza torneios e prepara o atleta com um plano de treino personalizado. MVP ativo em operação.</p>
+        <div class="cm-detail-stats">
+          <div><div class="cm-detail-stat-num" style="color:#50C850">MVP</div><div class="cm-detail-stat-lbl">ativo em operação</div></div>
+          <div><div class="cm-detail-stat-num">10</div><div class="cm-detail-stat-lbl">habilidades no radar</div></div>
+          <div><div class="cm-detail-stat-num">100%</div><div class="cm-detail-stat-lbl">personalizado</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cm-detail-beehome" class="cm-detail">
+    <div class="cm-detail-inner">
+      <div class="cm-detail-img"><img src="/case-beehome.jpg" alt="Bee Home"></div>
+      <div class="cm-detail-body">
+        <div class="cm-detail-eyebrow">E-commerce Premium · Boutique Digital · Decoração</div>
+        <h3 class="cm-detail-title">Luxo acolhedor para viver e receber.</h3>
+        <p class="cm-detail-narrative">A Bee Home não vende produtos de decoração — vende experiências, pertencimento e a sofisticação de saber receber. Estruturamos o projeto estratégico digital completo: branding, plataforma premium, e-commerce sofisticado, catálogo inteligente e IA decorativa. 17 entregas organizadas em 2 fases para lançamento em 2026.</p>
+        <div class="cm-detail-stats">
+          <div><div class="cm-detail-stat-num" style="color:#C8904A">17</div><div class="cm-detail-stat-lbl">entregas previstas</div></div>
+          <div><div class="cm-detail-stat-num">2</div><div class="cm-detail-stat-lbl">fases (site + IA Decor)</div></div>
+          <div><div class="cm-detail-stat-num">2026</div><div class="cm-detail-stat-lbl">lançamento</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO: AUTOMAÇÃO COM IA ══ -->
+  <div class="cm-section">
+    <div class="cm-section-header">
+      <div class="cm-section-left">
+        <div class="cm-section-badge" style="background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.25);color:rgba(212,175,55,.85)"><span style="width:5px;height:5px;border-radius:50%;background:#D4AF37;display:inline-block"></span> Automação com IA</div>
+        <div class="cm-section-title">Agentes e sistemas que trabalham sozinhos.</div>
+        <div class="cm-section-desc">Fluxos automatizados, agentes de inteligência artificial e dashboards que eliminam trabalho manual.</div>
+      </div>
+      <div class="cm-section-count">02</div>
+    </div>
+  </div>
+
+  <div class="cm-grid" style="margin-top:0">
+
+    <!-- Pipeline de Leads -->
+    <div class="cm-card" onclick="toggleCase('pipeline',this)">
+      <span class="cm-card-tag" style="background:rgba(180,120,0,.85)">Automação · IA</span>
+      <div class="cm-card-thumb"><img src="/case-pipeline.jpg" alt="Pipeline de Leads — Fator IA"></div>
+      <div class="cm-card-body">
+        <div class="cm-card-eyebrow">Automação com IA</div>
+        <div class="cm-card-title">Pipeline de leads ao vivo.<br>Score automático por IA.</div>
+        <div class="cm-card-stat">
+          <span class="cm-card-stat-num" style="color:#D4AF37">7.8</span>
+          <span class="cm-card-stat-lbl">score de qualificação</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agente de Diagnóstico — link para Caso 03 -->
+    <div class="cm-card" onclick="toggleCase('diag',this)">
+      <span class="cm-card-tag" style="background:rgba(34,160,90,.8)">Agente de IA</span>
+      <div class="cm-card-thumb"><img src="/case-diagnostico.jpg" alt="Agente de Diagnóstico com IA"></div>
+      <div class="cm-card-body">
+        <div class="cm-card-eyebrow">Automação com IA</div>
+        <div class="cm-card-title">Todo lead esperava<br>até a reunião.</div>
+        <div class="cm-card-stat">
+          <span class="cm-card-stat-num" style="color:#D4AF37">&lt;2min</span>
+          <span class="cm-card-stat-lbl">diagnóstico pronto</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Detalhe Pipeline -->
+  <div id="cm-detail-pipeline" class="cm-detail">
+    <div class="cm-detail-inner">
+      <div class="cm-detail-img"><img src="/case-pipeline.jpg" alt="Pipeline de Leads — Fator IA"></div>
+      <div class="cm-detail-body">
+        <div class="cm-detail-eyebrow">Automação com IA · Máquina de Prospecção</div>
+        <h3 class="cm-detail-title">Pipeline de leads ao vivo.<br>Score automático. Sem planilha.</h3>
+        <p class="cm-detail-narrative">Construímos um sistema de prospecção ativa com agente de inteligência artificial que pesquisa, qualifica e pontua cada lead automaticamente — com score de 0 a 10 baseado em sinais reais (presença digital, dor identificada, fit com ICP). O pipeline atualiza ao vivo conforme novas rodadas entram. Qualquer pessoa com acesso pode mudar o status de um lead direto no sistema, sem precisar avisar por fora. Usado pela própria Fator IA e disponível como entrega para clientes.</p>
+        <div class="cm-detail-stats">
+          <div><div class="cm-detail-stat-num" style="color:#D4AF37">7.8</div><div class="cm-detail-stat-lbl">score médio de qualificação</div></div>
+          <div><div class="cm-detail-stat-num">0</div><div class="cm-detail-stat-lbl">planilhas manuais</div></div>
+          <div><div class="cm-detail-stat-num">ao vivo</div><div class="cm-detail-stat-lbl">atualização em tempo real</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ OUTROS EM DESENVOLVIMENTO ══ -->
   <div class="cm-outros">
     <div style="height:1px;background:rgba(255,255,255,.06);margin-bottom:40px"></div>
     <div class="cm-outros-title">Também em <em>desenvolvimento</em></div>
-    <div class="cm-proj-row"><div><div class="cm-proj-name">Feminah</div><div class="cm-proj-type">Rastreamento de câncer de mama · IA</div></div><div class="cm-proj-status"><div class="cm-dot cm-dot-green"></div>Entregue</div></div>
-    <div class="cm-proj-row"><div><div class="cm-proj-name">Multintegrada 360</div><div class="cm-proj-type">Diagnóstico digital · Padrão SBIS</div></div><div class="cm-proj-status"><div class="cm-dot cm-dot-green"></div>Entregue</div></div>
-    <div class="cm-proj-row"><div><div class="cm-proj-name">Be Happier</div><div class="cm-proj-type">Plataforma nacional · Flávia da Veiga</div></div><div class="cm-proj-status"><div class="cm-dot cm-dot-green"></div>Estratégico</div></div>
-    <div class="cm-proj-row"><div><div class="cm-proj-name">Bee Home</div><div class="cm-proj-type">Boutique digital de decoração premium</div></div><div class="cm-proj-status"><div class="cm-dot cm-dot-gold"></div>Em desenvolvimento</div></div>
-    <div class="cm-proj-row"><div><div class="cm-proj-name">Rally One</div><div class="cm-proj-type">App de autoavaliação · Tênis & Beach Tennis</div></div><div class="cm-proj-status"><div class="cm-dot cm-dot-gold"></div>MVP Ativo</div></div>
     <div class="cm-proj-row"><div><div class="cm-proj-name">TripWise IA</div><div class="cm-proj-type">Consultor de viagens com Agentes de IA</div></div><div class="cm-proj-status"><div class="cm-dot cm-dot-gold"></div>MVP</div></div>
     <div class="cm-proj-row"><div><div class="cm-proj-name">Ritmo</div><div class="cm-proj-type">Treinador de IA conversacional · PWA</div></div><div class="cm-proj-status"><div class="cm-dot cm-dot-gold"></div>MVP Ativo</div></div>
     <div class="cm-proj-row"><div><div class="cm-proj-name">Bora?</div><div class="cm-proj-type">Conecta pessoas disponíveis em tempo real</div></div><div class="cm-proj-status"><div class="cm-dot cm-dot-gold"></div>MVP Ativo</div></div>
