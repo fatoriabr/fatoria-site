@@ -11,7 +11,7 @@
 <meta http-equiv="X-XSS-Protection" content="1; mode=block">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://formspree.io https://fonts.googleapis.com https://www.google-analytics.com https://www.googletagmanager.com; frame-ancestors 'none'; form-action 'self' https://formspree.io;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://fator-ia-diagnostico.fatoria-br.workers.dev https://formspree.io https://fonts.googleapis.com https://www.google-analytics.com https://www.googletagmanager.com; frame-ancestors 'none'; form-action 'self' https://formspree.io;">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fator IA — IA Aplicada a Negócios | Salvador, Bahia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -4775,3 +4775,293 @@ document.addEventListener('keydown', function(e){
   <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.555 4.122 1.524 5.854L0 24l6.336-1.494A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.374l-.36-.213-3.728.879.894-3.643-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
 </a>
 
+<style>
+  :root{
+    --fia-bg-2: #150F22;
+    --fia-card: #1A1330;
+    --fia-card-2: #201839;
+    --fia-border: rgba(212,175,55,.18);
+    --fia-text: #F6F3FF;
+    --fia-text-muted: #AFA5C9;
+    --fia-purple: #6A3FD9;
+    --fia-purple-deep: #4B2E83;
+    --fia-gold: #D4AF37;
+    --fia-radius: 16px;
+    --fia-font: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  #fia-overlay{
+    position: fixed; inset: 0; z-index: 99999;
+    background: rgba(6,7,12,.78);
+    backdrop-filter: blur(6px);
+    display: none; align-items: center; justify-content: center;
+    padding: 20px; font-family: var(--fia-font);
+  }
+  #fia-overlay.fia-aberto{ display: flex; }
+  #fia-painel{
+    width: 100%; max-width: 480px; height: min(720px, 92vh);
+    background: var(--fia-bg-2); border: 1px solid var(--fia-border);
+    border-radius: var(--fia-radius); display: flex; flex-direction: column;
+    overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,.55);
+  }
+  #fia-cabecalho{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px 20px; border-bottom: 1px solid var(--fia-border);
+    background: var(--fia-card);
+  }
+  #fia-cabecalho .fia-titulo{ display:flex; align-items:center; gap:10px; }
+  #fia-cabecalho .fia-dot{ width:9px; height:9px; border-radius:50%; background: var(--fia-gold); box-shadow: 0 0 0 4px rgba(212,175,55,.2); }
+  #fia-cabecalho h2{ margin:0; font-size:15px; font-weight:700; color: var(--fia-text); font-family:'Sora','Manrope',sans-serif; }
+  #fia-cabecalho span{ display:block; font-size:12px; color: var(--fia-text-muted); margin-top:2px; }
+  #fia-fechar{
+    background: transparent; border: none; color: var(--fia-text-muted);
+    font-size: 22px; line-height:1; cursor: pointer; padding: 4px 8px; border-radius: 8px;
+  }
+  #fia-fechar:hover{ color: var(--fia-text); background: rgba(255,255,255,.06); }
+  #fia-mensagens{
+    flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 12px;
+  }
+  .fia-bolha{
+    max-width: 84%; padding: 12px 14px; border-radius: 14px; font-size: 14.5px; line-height: 1.5;
+    white-space: pre-wrap; word-wrap: break-word;
+  }
+  .fia-bolha.fia-bot{
+    align-self: flex-start; background: var(--fia-card); border: 1px solid var(--fia-border);
+    color: var(--fia-text); border-bottom-left-radius: 4px;
+  }
+  .fia-bolha.fia-user{
+    align-self: flex-end; background: linear-gradient(135deg, var(--fia-purple), var(--fia-purple-deep));
+    color: #fff; border-bottom-right-radius: 4px;
+  }
+  .fia-bolha.fia-erro{
+    align-self: center; background: rgba(255,90,90,.1); border:1px solid rgba(255,90,90,.35);
+    color:#ffb3b3; font-size: 13px; text-align:center;
+  }
+  #fia-digitando{ align-self: flex-start; display:flex; gap:4px; padding: 12px 14px; }
+  #fia-digitando span{
+    width:6px; height:6px; border-radius:50%; background: var(--fia-text-muted);
+    animation: fia-piscar 1.2s infinite ease-in-out;
+  }
+  #fia-digitando span:nth-child(2){ animation-delay: .15s; }
+  #fia-digitando span:nth-child(3){ animation-delay: .3s; }
+  @keyframes fia-piscar{ 0%,80%,100%{ opacity:.25; } 40%{ opacity: 1; } }
+  #fia-rodape{
+    border-top: 1px solid var(--fia-border); padding: 14px; background: var(--fia-card);
+    display: flex; gap: 10px;
+  }
+  #fia-input{
+    flex: 1; resize: none; border: 1px solid var(--fia-border); background: var(--fia-bg-2);
+    color: var(--fia-text); border-radius: 12px; padding: 12px 14px; font-size: 14.5px;
+    font-family: var(--fia-font); max-height: 120px;
+  }
+  #fia-input:focus{ outline: none; border-color: var(--fia-purple); }
+  #fia-enviar{
+    background: linear-gradient(135deg, var(--fia-purple), var(--fia-purple-deep));
+    color: #fff; border: none; border-radius: 12px;
+    padding: 0 18px; font-weight: 700; font-size: 14px; cursor: pointer;
+  }
+  #fia-enviar:disabled{ opacity: .5; cursor: not-allowed; }
+  #fia-concluido{
+    border-top: 1px solid var(--fia-border); background: var(--fia-card);
+    padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; align-items: center; text-align: center;
+  }
+  #fia-concluido .fia-confirmacao{
+    display:flex; align-items:center; gap:8px; font-size: 14px; font-weight: 700; color: var(--fia-text);
+  }
+  #fia-concluido .fia-confirmacao .fia-check{
+    width: 20px; height: 20px; border-radius: 50%; background: var(--fia-gold); color:#0F0F0F;
+    display:flex; align-items:center; justify-content:center; font-size: 12px; flex: none;
+  }
+  #fia-concluido .fia-opcional{
+    font-size: 12.5px; color: var(--fia-text-muted); text-decoration: none; border-bottom: 1px dashed var(--fia-text-muted);
+  }
+  #fia-concluido .fia-opcional:hover{ color: var(--fia-text); }
+  @media (prefers-reduced-motion: reduce){ #fia-digitando span{ animation: none; opacity: .7; } }
+  @media (max-width: 400px){
+    #fia-painel{ height: 100vh; max-height: none; border-radius: 0; }
+    #fia-overlay{ padding: 0; }
+  }
+</style>
+
+<div id="fia-overlay" role="dialog" aria-modal="true" aria-labelledby="fia-titulo-txt">
+  <div id="fia-painel">
+    <div id="fia-cabecalho">
+      <div class="fia-titulo">
+        <span class="fia-dot"></span>
+        <div>
+          <h2 id="fia-titulo-txt">Diagnóstico Fator IA</h2>
+          <span>Leva menos de 2 minutos</span>
+        </div>
+      </div>
+      <button id="fia-fechar" aria-label="Fechar" type="button">×</button>
+    </div>
+    <div id="fia-mensagens"></div>
+    <div id="fia-rodape">
+      <textarea id="fia-input" rows="1" placeholder="Digite sua resposta..." aria-label="Sua resposta"></textarea>
+      <button id="fia-enviar" type="button">Enviar</button>
+    </div>
+    <div id="fia-concluido" style="display:none;"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var CONFIG = {
+    WORKER_URL: "https://fator-ia-diagnostico.fatoria-br.workers.dev/diagnostico",
+    WHATSAPP_NUMERO: "5571983618484"
+  };
+
+  var overlay, painel, listaMensagens, concluido, input, botaoEnviar, botaoFechar, rodape;
+  var historico = [];
+  var enviando = false;
+  var elementoQueAbriu = null;
+  var iniciado = false;
+
+  function q(id){ return document.getElementById(id); }
+
+  function rolarParaFim(){ listaMensagens.scrollTop = listaMensagens.scrollHeight; }
+
+  function adicionarBolha(texto, tipo){
+    var div = document.createElement('div');
+    div.className = 'fia-bolha ' + (tipo === 'user' ? 'fia-user' : tipo === 'erro' ? 'fia-erro' : 'fia-bot');
+    div.textContent = texto;
+    listaMensagens.appendChild(div);
+    rolarParaFim();
+    return div;
+  }
+
+  function mostrarDigitando(mostrar){
+    var existente = q('fia-digitando');
+    if (mostrar && !existente){
+      var div = document.createElement('div');
+      div.id = 'fia-digitando';
+      div.innerHTML = '<span></span><span></span><span></span>';
+      listaMensagens.appendChild(div);
+      rolarParaFim();
+    } else if (!mostrar && existente){
+      existente.remove();
+    }
+  }
+
+  function montarMensagemWhatsApp(d){
+    var linhas = [];
+    linhas.push("Diagnóstico Fator IA — site");
+    if (d.nome) linhas.push("Nome: " + d.nome);
+    if (d.empresa) linhas.push("Empresa: " + d.empresa);
+    if (d.segmento) linhas.push("Segmento: " + d.segmento);
+    if (d.maior_dor) linhas.push("Maior dor: " + d.maior_dor);
+    if (d.urgencia) linhas.push("Urgência: " + d.urgencia);
+    if (d.resumo_equipe) linhas.push("", d.resumo_equipe);
+    return linhas.join("\n");
+  }
+
+  function renderizarConclusao(d){
+    rodape.style.display = 'none';
+    concluido.style.display = 'flex';
+    var html = '';
+    html += '<div class="fia-confirmacao"><span class="fia-check">&#10003;</span> Diagnóstico enviado — nossa equipe entra em contato em breve.</div>';
+    var msg = encodeURIComponent(montarMensagemWhatsApp(d));
+    html += '<a class="fia-opcional" target="_blank" rel="noopener" href="https://wa.me/' + CONFIG.WHATSAPP_NUMERO + '?text=' + msg + '">Prefere adiantar? Fale agora no WhatsApp</a>';
+    concluido.innerHTML = html;
+  }
+
+  function enviarParaAgente(textoUsuario, oculto){
+    if (enviando) return;
+    enviando = true;
+    botaoEnviar.disabled = true;
+    if (!oculto){ adicionarBolha(textoUsuario, 'user'); }
+    historico.push({ role: 'user', content: textoUsuario });
+    mostrarDigitando(true);
+
+    fetch(CONFIG.WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: historico })
+    })
+    .then(function(resp){
+      if (!resp.ok) throw new Error('Falha na resposta (' + resp.status + ')');
+      return resp.json();
+    })
+    .then(function(data){
+      mostrarDigitando(false);
+      if (data.error){
+        adicionarBolha('Não consegui continuar agora. Tenta de novo em alguns segundos?', 'erro');
+        enviando = false;
+        botaoEnviar.disabled = false;
+        return;
+      }
+      historico.push({ role: 'assistant', content: data.resposta });
+      adicionarBolha(data.resposta, 'bot');
+      if (data.diagnostico){
+        setTimeout(function(){ renderizarConclusao(data.diagnostico); }, 400);
+      } else {
+        enviando = false;
+        botaoEnviar.disabled = false;
+        input.focus();
+      }
+    })
+    .catch(function(){
+      mostrarDigitando(false);
+      adicionarBolha('Erro de conexão. Verifique a internet e tente novamente.', 'erro');
+      enviando = false;
+      botaoEnviar.disabled = false;
+    });
+  }
+
+  function enviarDoInput(){
+    var texto = input.value.trim();
+    if (!texto || enviando) return;
+    input.value = '';
+    input.style.height = 'auto';
+    enviarParaAgente(texto, false);
+  }
+
+  function fiaInit(){
+    if (iniciado) return;
+    iniciado = true;
+    overlay = q('fia-overlay');
+    painel = q('fia-painel');
+    listaMensagens = q('fia-mensagens');
+    concluido = q('fia-concluido');
+    input = q('fia-input');
+    botaoEnviar = q('fia-enviar');
+    botaoFechar = q('fia-fechar');
+    rodape = q('fia-rodape');
+
+    botaoFechar.addEventListener('click', fiaFechar);
+    botaoEnviar.addEventListener('click', enviarDoInput);
+    input.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); enviarDoInput(); }
+    });
+    input.addEventListener('input', function(){
+      input.style.height = 'auto';
+      input.style.height = Math.min(input.scrollHeight, 120) + 'px';
+    });
+    overlay.addEventListener('click', function(e){ if (e.target === overlay) fiaFechar(); });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && overlay.classList.contains('fia-aberto')) fiaFechar();
+    });
+  }
+
+  function fiaFechar(){
+    overlay.classList.remove('fia-aberto');
+    document.body.style.overflow = '';
+    if (elementoQueAbriu && typeof elementoQueAbriu.focus === 'function'){ elementoQueAbriu.focus(); }
+  }
+
+  function fiaAbrir(){
+    fiaInit();
+    elementoQueAbriu = document.activeElement;
+    overlay.classList.add('fia-aberto');
+    document.body.style.overflow = 'hidden';
+    if (historico.length === 0){
+      enviarParaAgente("[INÍCIO] O visitante acabou de abrir o diagnóstico pelo site. Comece a conversa.", true);
+    } else {
+      input.focus();
+    }
+  }
+
+  window.openModal = fiaAbrir;
+})();
+</script>
