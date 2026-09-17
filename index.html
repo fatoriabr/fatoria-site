@@ -4916,9 +4916,9 @@ document.addEventListener('keydown', function(e){
   var historico = [];
   var enviando = false;
   var elementoQueAbriu = null;
-  var iniciado = false;
+  var iniciado = false; var respostasEnviadas = 0;
 
-  function q(id){ return document.getElementById(id); }
+  function q(id){ return document.getElementById(id); } function rastrear(evento, params){ if (typeof window.gtag === 'function'){ window.gtag('event', evento, params || {}); } }
 
   function rolarParaFim(){ listaMensagens.scrollTop = listaMensagens.scrollHeight; }
 
@@ -4956,7 +4956,7 @@ document.addEventListener('keydown', function(e){
     return linhas.join("\n");
   }
 
-  function renderizarConclusao(d){
+  function renderizarConclusao(d){ rastrear('diagnostico_completo', { segmento: (d && d.segmento) || '' });
     rodape.style.display = 'none';
     concluido.style.display = 'flex';
     var html = '';
@@ -5003,7 +5003,7 @@ document.addEventListener('keydown', function(e){
     })
     .catch(function(){
       mostrarDigitando(false);
-      adicionarBolha('Erro de conexão. Verifique a internet e tente novamente.', 'erro');
+      rastrear('diagnostico_erro'); adicionarBolha('Erro de conexão. Verifique a internet e tente novamente.', 'erro');
       enviando = false;
       botaoEnviar.disabled = false;
     });
@@ -5014,7 +5014,7 @@ document.addEventListener('keydown', function(e){
     if (!texto || enviando) return;
     input.value = '';
     input.style.height = 'auto';
-    enviarParaAgente(texto, false);
+    respostasEnviadas++; rastrear('diagnostico_resposta', { passo: respostasEnviadas }); enviarParaAgente(texto, false);
   }
 
   function fiaInit(){
@@ -5054,9 +5054,9 @@ document.addEventListener('keydown', function(e){
     fiaInit();
     elementoQueAbriu = document.activeElement;
     overlay.classList.add('fia-aberto');
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden'; rastrear('diagnostico_aberto');
     if (historico.length === 0){
-      enviarParaAgente("[INÍCIO] O visitante acabou de abrir o diagnóstico pelo site. Comece a conversa.", true);
+      rastrear('diagnostico_iniciado'); enviarParaAgente("[INÍCIO] O visitante acabou de abrir o diagnóstico pelo site. Comece a conversa.", true);
     } else {
       input.focus();
     }
