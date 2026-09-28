@@ -4916,7 +4916,7 @@ document.addEventListener('keydown', function(e){
   var historico = [];
   var enviando = false;
   var elementoQueAbriu = null;
-  var iniciado = false; var respostasEnviadas = 0;
+  var iniciado = false; var respostasEnviadas = 0; var origemLead = "";
 
   function q(id){ return document.getElementById(id); } function rastrear(evento, params){ if (typeof window.gtag === 'function'){ window.gtag('event', evento, params || {}); } }
 
@@ -4977,7 +4977,7 @@ document.addEventListener('keydown', function(e){
     fetch(CONFIG.WORKER_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ messages: historico })
+      body: JSON.stringify({ messages: historico, origem: origemLead })
     })
     .then(function(resp){
       if (!resp.ok) throw new Error('Falha na resposta (' + resp.status + ')');
@@ -5062,6 +5062,6 @@ document.addEventListener('keydown', function(e){
     }
   }
 
-  window.openModal = fiaAbrir;
+  window.openModal = fiaAbrir; (function(){ var origemParam = new URLSearchParams(window.location.search).get('diagnostico'); if (origemParam){ origemLead = origemParam; if (document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', fiaAbrir); } else { fiaAbrir(); } } })();
 })();
 </script>
