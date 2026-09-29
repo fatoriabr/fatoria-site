@@ -26,148 +26,196 @@
     min-height:100vh;
     display:flex;
     justify-content:center;
-    padding:48px 20px 40px;
+    padding:56px 20px 40px;
   }
   .wrap{
     width:100%;
-    max-width:440px;
+    max-width:420px;
     display:flex;
     flex-direction:column;
     align-items:center;
     flex-shrink:0;
   }
-  .logo{
-    width:88px;
-    height:88px;
-    border-radius:50%;
-    overflow:hidden;
-    box-shadow:0 0 0 1px rgba(212,175,55,0.35), 0 12px 30px rgba(106,63,217,0.45);
-    margin-bottom:18px;
+  .logo-holder{
+    position:relative;
+    width:96px;
+    height:96px;
+    margin-bottom:22px;
     flex-shrink:0;
   }
-  .logo img{
+  .logo-glow{
+    position:absolute;
+    inset:-18px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(212,175,55,0.35) 0%, rgba(106,63,217,0.25) 45%, transparent 72%);
+    filter:blur(10px);
+    z-index:0;
+  }
+  .logo{
+    position:relative;
+    width:96px;
+    height:96px;
+    border-radius:50%;
+    padding:2px;
+    background:conic-gradient(from 180deg, var(--ouro-claro), var(--violeta-tech), var(--ouro), var(--ouro-claro));
+    z-index:1;
+    box-shadow:0 14px 34px rgba(0,0,0,0.45);
+  }
+  .logo-inner{
     width:100%;
     height:100%;
+    border-radius:50%;
+    overflow:hidden;
+    background:var(--preto);
+    position:relative;
+  }
+  .logo-inner img{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:122%;
+    height:122%;
+    transform:translate(-50%,-50%);
     object-fit:cover;
     display:block;
   }
   h1{
     font-family:'Sora',sans-serif;
     font-weight:700;
-    font-size:22px;
-    letter-spacing:0.02em;
+    font-size:23px;
+    letter-spacing:0.01em;
     text-align:center;
   }
   .tagline{
-    font-size:13px;
+    font-size:12px;
     color:var(--ouro-claro);
     text-transform:uppercase;
-    letter-spacing:0.12em;
-    margin-top:6px;
+    letter-spacing:0.16em;
+    margin-top:7px;
     text-align:center;
   }
   .sub{
     font-size:14px;
-    color:rgba(242,240,235,0.65);
+    color:rgba(242,240,235,0.6);
     text-align:center;
-    margin-top:14px;
-    line-height:1.5;
-    max-width:340px;
+    margin-top:16px;
+    line-height:1.55;
+    max-width:320px;
   }
   .links{
     width:100%;
-    margin-top:34px;
+    margin-top:36px;
     display:flex;
     flex-direction:column;
-    gap:14px;
+    gap:12px;
   }
   a.btn{
     display:flex;
     align-items:center;
     gap:14px;
     width:100%;
-    padding:16px 20px;
-    border-radius:14px;
+    padding:17px 20px;
+    border-radius:16px;
     text-decoration:none;
     font-family:'Sora',sans-serif;
     font-weight:600;
-    font-size:15px;
+    font-size:14.5px;
     color:var(--creme);
-    background:rgba(242,240,235,0.05);
-    border:1px solid rgba(242,240,235,0.14);
-    transition:transform .15s ease, border-color .15s ease, background .15s ease;
+    background:rgba(242,240,235,0.045);
+    backdrop-filter:blur(6px);
+    border:1px solid rgba(242,240,235,0.12);
+    transition:transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
     flex-shrink:0;
   }
   a.btn:hover{
     transform:translateY(-2px);
-    border-color:rgba(212,175,55,0.55);
-    background:rgba(242,240,235,0.09);
+    border-color:rgba(212,175,55,0.5);
+    background:rgba(242,240,235,0.08);
+    box-shadow:0 10px 24px rgba(0,0,0,0.35);
   }
   a.btn.destaque{
     background:linear-gradient(135deg, var(--violeta-tech), var(--roxo-profundo));
-    border:1px solid rgba(212,175,55,0.55);
-    box-shadow:0 10px 26px rgba(106,63,217,0.35);
+    border:1px solid rgba(212,175,55,0.45);
+    box-shadow:0 12px 28px rgba(106,63,217,0.4);
   }
   a.btn.destaque:hover{
     border-color:var(--ouro-claro);
   }
   .icon{
-    width:22px;
-    height:22px;
+    width:20px;
+    height:20px;
     flex:none;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:17px;
+    font-size:16px;
   }
   .label{flex:1;}
   .arrow{
-    opacity:0.5;
-    font-size:16px;
+    opacity:0.45;
+    font-size:15px;
+    transition:transform .18s ease, opacity .18s ease;
+  }
+  a.btn:hover .arrow{
+    opacity:0.9;
+    transform:translateX(2px);
+  }
+  .divider{
+    width:40px;
+    height:1px;
+    background:rgba(242,240,235,0.15);
+    margin:32px 0 26px;
   }
   .socials{
     display:flex;
-    gap:14px;
-    margin-top:30px;
+    gap:12px;
     flex-shrink:0;
   }
   .socials a{
-    width:44px;
-    height:44px;
+    width:42px;
+    height:42px;
     border-radius:50%;
-    background:rgba(242,240,235,0.06);
-    border:1px solid rgba(242,240,235,0.14);
+    background:rgba(242,240,235,0.05);
+    border:1px solid rgba(242,240,235,0.12);
     display:flex;
     align-items:center;
     justify-content:center;
     color:var(--creme);
     text-decoration:none;
-    transition:border-color .15s ease, transform .15s ease, background .15s ease;
+    transition:border-color .18s ease, transform .18s ease, background .18s ease;
     flex-shrink:0;
   }
   .socials a svg{
-    width:19px;
-    height:19px;
+    width:17px;
+    height:17px;
     fill:var(--creme);
   }
   .socials a:hover{
     border-color:var(--ouro-claro);
-    background:rgba(242,240,235,0.1);
+    background:rgba(242,240,235,0.09);
     transform:translateY(-2px);
   }
   footer{
-    margin-top:44px;
+    margin-top:40px;
     text-align:center;
-    font-size:11px;
-    color:rgba(242,240,235,0.4);
-    line-height:1.6;
+    font-size:10.5px;
+    color:rgba(242,240,235,0.35);
+    line-height:1.7;
+    letter-spacing:0.02em;
     flex-shrink:0;
   }
 </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="logo"><img src="https://www.fatoriabr.com.br/links/sphere-logo-v2.png" alt="Fator IA"></div>
+    <div class="logo-holder">
+      <div class="logo-glow"></div>
+      <div class="logo">
+        <div class="logo-inner">
+          <img src="https://www.fatoriabr.com.br/links/sphere-logo-v2.png" alt="Fator IA">
+        </div>
+      </div>
+    </div>
     <h1>Fator IA</h1>
     <div class="tagline">Inteligência Aplicada a Negócios</div>
     <p class="sub">Organize. Automatize. Escale. Escolha por onde começar:</p>
@@ -191,6 +239,8 @@
         <span class="arrow">→</span>
       </a>
     </div>
+
+    <div class="divider"></div>
 
     <div class="socials">
       <a href="https://instagram.com/fator.ia.br" target="_blank" rel="noopener" aria-label="Instagram">
